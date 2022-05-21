@@ -7,7 +7,7 @@ module.exports = {
 		path: path.resolve(__dirname, "dist"),
 		filename: "bundle.js",
 	},
-	mode: "development",
+	mode: "production",
 	resolve: {
 		extensions: [".js", ".jsx"],
 	},
@@ -28,8 +28,13 @@ module.exports = {
 					},
 				],
 			},
+			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader"],
+			},
 		],
 	},
+
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./public/index.html",
