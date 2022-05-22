@@ -1,0 +1,11 @@
+@import "/src/globalVars.css";
+
+#MainContainer{
+  width: 70vw;
+  height: 700px;
+  background-color: white;
+  margin: 15px auto;
+  border-radius: 1em;
+  padding: 10px;
+  box-sizing: border-box;
+}

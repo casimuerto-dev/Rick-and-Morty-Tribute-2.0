@@ -2,9 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createRoot } from "react-dom/client";
 import "./globalStyles.css";
-function App() {
-	return <h1>Hello World!</h1>;
-}
+import App from "./app/App.js";
 
 const container = document.getElementById("root");
 const root = createRoot(container);

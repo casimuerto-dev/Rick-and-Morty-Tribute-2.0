@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
-:root{
-  --main-font:'Fredoka One', cursive;
-  --cursive-font:'Courgette', cursive;
-  --interesting-font:'Gloria Hallelujah', cursive;
-}
+@import "./globalVars.css";
 
 body{
-  font-family: var(--interesting-font);
-  
-}
+  font-family: var(--main-font);
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(230deg,rgb(172, 109, 80) , rgb(94, 59, 43) );
+  /* background-color: rgb(94, 59, 43); */
+  background-repeat:no-repeat ;
+  background-attachment: fixed;
+  }
 
-h1{color:red;}
+
+.root{margin: 0;
+padding: 0;}

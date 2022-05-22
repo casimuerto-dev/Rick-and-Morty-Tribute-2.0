@@ -1,0 +1,26 @@
+@import "../../../globalVars.css";
+
+#Header{
+  font-family: var(--main-font);
+  font-size: 30px;
+  display: block;
+  text-align: center;
+    margin: 0 auto;
+    background-color:var(--main-color);
+    box-shadow: -5px 5px 5px 0px black;
+    width: 90vw;
+    border-radius: 5em;
+}
+
+#mainTitle{color: rgb(255, 255, 255);
+padding: 2px 5px 8px 5px;
+margin: 20px 0 0 0;
+font-weight: 200;
+word-wrap: break-word;
+white-space: initial;
+
+}
+
+@media(max-width:800px){
+  #mainTitle{font-size: 25px;}
+}
