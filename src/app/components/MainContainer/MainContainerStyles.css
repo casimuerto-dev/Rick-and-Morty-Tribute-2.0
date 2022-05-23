@@ -4,8 +4,14 @@
   width: 70vw;
   height: 700px;
   background-color: white;
+  box-shadow: -5px 5px 5px 0px black;
   margin: 15px auto;
   border-radius: 1em;
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  
 }
