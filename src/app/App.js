@@ -4,27 +4,53 @@ import { Explanation } from "./components/Explanation/Explanation";
 import { MainContainer } from "./components/MainContainer/MainContainer";
 import { InfoCard } from "./components/InfoCard/InfoCard";
 
-const cards = () => {
-	let workArray = [];
-	for (let i = 0; i <= 29; i++) {
-		workArray.push(<InfoCard key={i} number={i} />);
-	}
-	return workArray;
-};
+import { generateData } from "./logic/processData";
 
 function App() {
-	const allCards = cards();
-	const initialCards = allCards.slice(0, 15);
-	const restofCards = allCards.slice(15, 31);
+	const [allCards, setAllCards] = React.useState([]);
+	const [shownArray, setShownArray] = React.useState(0);
+	const [loading, setLoading] = React.useState(true);
 
-	console.log(initialCards);
+	const changePage = (instruction) => {
+		const pages = allCards.length - 1;
 
-	const [shownArray, setShownArray] = React.useState(initialCards);
+		if (instruction === "next") {
+			console.log("next");
+			shownArray < pages ? setShownArray((pag) => pag + 1) : "";
+		}
+
+		if (instruction === "back") {
+			console.log("back");
+			shownArray > 0 ? setShownArray((pag) => pag - 1) : "";
+		}
+		setLoading(false);
+	};
+
+	React.useEffect(() => {
+		console.log("useEffect");
+		const setter = async () => {
+			setAllCards(await generateData());
+			setLoading(false);
+		};
+		setter();
+	}, []);
+
+	console.log("ALL CARDS: ", allCards);
+
 	return (
 		<>
 			<Header />
 			<Explanation />
-			<MainContainer>{shownArray}</MainContainer>
+			<MainContainer>
+				{!loading &&
+					allCards[shownArray].map((element, index) => (
+						<InfoCard
+							key={shownArray * 15 + (index + 1)}
+							number={shownArray * 15 + (index + 1)}
+							info={element}
+						/>
+					))}
+			</MainContainer>
 			<button
 				style={{
 					width: "200px",
@@ -32,8 +58,13 @@ function App() {
 					marginLeft: "500px",
 					marginBottom: "20px",
 				}}
-				onClick={() => setShownArray(initialCards)}
-			></button>
+				onClick={() => {
+					setLoading(true);
+					changePage("back");
+				}}
+			>
+				back
+			</button>
 			<button
 				style={{
 					width: "200px",
@@ -41,8 +72,13 @@ function App() {
 					marginLeft: "500px",
 					marginBottom: "20px",
 				}}
-				onClick={() => setShownArray(restofCards)}
-			></button>
+				onClick={() => {
+					setLoading(true);
+					changePage("next");
+				}}
+			>
+				next
+			</button>
 		</>
 	);
 }
