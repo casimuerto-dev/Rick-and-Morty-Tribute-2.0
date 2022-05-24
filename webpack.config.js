@@ -42,13 +42,12 @@ module.exports = {
 		}),
 	],
 	devServer: {
-		//donde esta el proyecto final
 		static: path.join(__dirname, "dist"),
-		//no se pero evita errores
+
 		compress: true,
-		//puerto custom a utilizar (opcional)
+
 		port: 3005,
-		//no se, averiguar
+
 		historyApiFallback: true,
 	},
 };
