@@ -4,13 +4,20 @@ import { Explanation } from "./components/Explanation/Explanation";
 import { MainContainer } from "./components/MainContainer/MainContainer";
 import { InfoCard } from "./components/InfoCard/InfoCard";
 
-import { generateData } from "./logic/processData";
+import { generateData } from "./logic/generateData";
 import { MainButtons } from "./components/MainButtons/MainButtons";
 
 function App() {
 	const [allCards, setAllCards] = React.useState([]);
 	const [shownArray, setShownArray] = React.useState(0);
 	const [loading, setLoading] = React.useState(true);
+	const [search, setSearch] = React.useState({
+		name: "",
+		status: "",
+		species: "",
+		type: "",
+		gender: "",
+	});
 
 	const changePage = (instruction) => {
 		const pages = allCards.length - 1;
@@ -30,7 +37,7 @@ function App() {
 	React.useEffect(() => {
 		console.log("useEffect");
 		const setter = async () => {
-			setAllCards(await generateData());
+			setAllCards(await generateData(search));
 			setLoading(false);
 		};
 		setter();
