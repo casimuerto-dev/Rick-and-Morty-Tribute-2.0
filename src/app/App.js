@@ -11,6 +11,7 @@ function App() {
 	const [allCards, setAllCards] = React.useState([]);
 	const [shownArray, setShownArray] = React.useState(0);
 	const [loading, setLoading] = React.useState(true);
+	const [empty, setEmpty] = React.useState(true);
 	const [search, setSearch] = React.useState({
 		name: "rick",
 		status: "dead",
@@ -37,15 +38,24 @@ function App() {
 	React.useEffect(() => {
 		console.log("useEffect");
 		const setter = async () => {
-			setAllCards(await generateData(search));
-
+			const ultimateResponse = await generateData(search);
+			console.log("ULTIMATE RESPONSE: ", ultimateResponse);
+			if (ultimateResponse.length !== 0) {
+				console.log("arriba");
+				setAllCards(ultimateResponse);
+				setEmpty(false);
+			} else if (ultimateResponse.length === 0) {
+				console.log("abajo");
+				setAllCards([]);
+				setEmpty(true);
+			}
 			setLoading(false);
 		};
 		setter();
 	}, [search]);
 
 	console.log("ALL CARDS: ", allCards);
-
+	console.log("EMPTY: ", empty);
 	return (
 		<>
 			<Header />
@@ -53,6 +63,7 @@ function App() {
 			<SearchBar search={search} setSearch={setSearch} setLoading={setLoading} />
 			<MainContainer loading={loading}>
 				{!loading &&
+					!empty &&
 					allCards[shownArray].map((element, index) => (
 						<InfoCard
 							key={shownArray * 15 + (index + 1)}
@@ -60,6 +71,7 @@ function App() {
 							info={element}
 						/>
 					))}
+				{!loading && empty && <p>No matching results.</p>}
 			</MainContainer>
 
 			<MainButtons
