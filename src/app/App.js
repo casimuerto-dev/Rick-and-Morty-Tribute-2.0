@@ -11,13 +11,12 @@ function App() {
 	const [allCards, setAllCards] = React.useState([]);
 	const [shownArray, setShownArray] = React.useState(0);
 	const [loading, setLoading] = React.useState(true);
-
 	const [search, setSearch] = React.useState({
-		name: "",
-		status: "",
-		species: "",
-		type: "",
-		gender: "",
+		name: "rick",
+		status: "dead",
+		species: "robot",
+		type: "decoy",
+		gender: "male",
 	});
 
 	const changePage = (instruction) => {

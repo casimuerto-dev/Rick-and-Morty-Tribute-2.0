@@ -42,7 +42,7 @@ function SearchBar(props) {
 				<p>Status: </p>
 				<input
 					className="searchInput"
-					placeholder="Alive"
+					placeholder="Dead"
 					onChange={statusChange}
 					value={status}
 				></input>
@@ -51,7 +51,7 @@ function SearchBar(props) {
 				<p>Species: </p>
 				<input
 					className="searchInput"
-					placeholder="Human"
+					placeholder="Robot"
 					onChange={speciesChange}
 					value={species}
 				></input>
@@ -69,7 +69,7 @@ function SearchBar(props) {
 				<p>Gender: </p>
 				<input
 					className="searchInput"
-					placeholder="Unknown"
+					placeholder="Male"
 					onChange={genderChange}
 					value={gender}
 				></input>
