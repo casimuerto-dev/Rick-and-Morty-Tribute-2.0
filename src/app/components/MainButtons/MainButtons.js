@@ -8,7 +8,8 @@ function MainButtons(props) {
 				Back
 			</button>
 			<p id="pageCounter">
-				{props.page} of {props.pages}
+				{!props.loading && `${props.page} of ${props.pages}`}
+				{props.loading && "Loading..."}
 			</p>
 			<button className="mainButton" onClick={props.next}>
 				Next

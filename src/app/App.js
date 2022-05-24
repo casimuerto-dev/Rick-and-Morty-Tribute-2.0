@@ -3,14 +3,15 @@ import { Header } from "./components/header/Header";
 import { Explanation } from "./components/Explanation/Explanation";
 import { MainContainer } from "./components/MainContainer/MainContainer";
 import { InfoCard } from "./components/InfoCard/InfoCard";
-
 import { generateData } from "./logic/generateData";
 import { MainButtons } from "./components/MainButtons/MainButtons";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 
 function App() {
 	const [allCards, setAllCards] = React.useState([]);
 	const [shownArray, setShownArray] = React.useState(0);
 	const [loading, setLoading] = React.useState(true);
+
 	const [search, setSearch] = React.useState({
 		name: "",
 		status: "",
@@ -42,7 +43,7 @@ function App() {
 			setLoading(false);
 		};
 		setter();
-	}, [allCards]);
+	}, [search]);
 
 	console.log("ALL CARDS: ", allCards);
 
@@ -50,6 +51,7 @@ function App() {
 		<>
 			<Header />
 			<Explanation />
+			<SearchBar search={search} setSearch={setSearch} setLoading={setLoading} />
 			<MainContainer loading={loading}>
 				{!loading &&
 					allCards[shownArray].map((element, index) => (
@@ -62,6 +64,7 @@ function App() {
 			</MainContainer>
 
 			<MainButtons
+				loading={loading}
 				back={() => {
 					setLoading(true);
 					changePage("back");
