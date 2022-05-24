@@ -5,6 +5,7 @@ import { MainContainer } from "./components/MainContainer/MainContainer";
 import { InfoCard } from "./components/InfoCard/InfoCard";
 
 import { generateData } from "./logic/processData";
+import { MainButtons } from "./components/MainButtons/MainButtons";
 
 function App() {
 	const [allCards, setAllCards] = React.useState([]);
@@ -51,34 +52,19 @@ function App() {
 						/>
 					))}
 			</MainContainer>
-			<button
-				style={{
-					width: "200px",
-					height: "20px",
-					marginLeft: "500px",
-					marginBottom: "20px",
-				}}
-				onClick={() => {
+
+			<MainButtons
+				back={() => {
 					setLoading(true);
 					changePage("back");
 				}}
-			>
-				back
-			</button>
-			<button
-				style={{
-					width: "200px",
-					height: "20px",
-					marginLeft: "500px",
-					marginBottom: "20px",
-				}}
-				onClick={() => {
+				next={() => {
 					setLoading(true);
 					changePage("next");
 				}}
-			>
-				next
-			</button>
+				page={shownArray + 1}
+				pages={allCards.length}
+			/>
 		</>
 	);
 }

@@ -1,0 +1,34 @@
+@import "/src/globalVars.css";
+
+#MainButtons{
+  margin: 0 auto 25px;
+  
+  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+#pageCounter{width: 5em;
+text-align: center;
+cursor:default;
+}
+
+
+
+.mainButton{font-family: var(--main-font);
+border-radius: 0.5em;
+transition: ease-in;
+transition-duration: 0.2s;
+
+}
+
+.mainButton:hover{
+  cursor: pointer;
+  
+  transform: translate(1px,-1px);
+  box-shadow: -5px 5px 5px 0px rgb(0, 0, 0);
+}
+
+.mainButton:active{
+  background-color: var(--main-color)
+}
