@@ -15,3 +15,33 @@
   grid-gap: 20px;
   
 }
+
+.loadingContainer{
+  width: 70vw;
+  height: 700px;
+  background:linear-gradient(90deg, white 40%,  rgb(224, 223, 223) 40%,rgb(224, 223, 223) 45%, white 45%);
+  box-shadow: -5px 5px 5px 0px black;
+  margin: 15px auto;
+  border-radius: 1em;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  animation-name: loadingAnimation;
+  animation-timing-function:linear;
+    animation-duration: 2s;
+  animation-iteration-count: infinite;
+  
+}
+
+@keyframes loadingAnimation{
+    0%{
+        background-position: 0vw;
+    }
+    100%{background-position: 70vw;}
+  
+  }
+  
+  .loadingContainer p{text-align: center;
+  font-size: 3em;}

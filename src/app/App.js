@@ -38,10 +38,11 @@ function App() {
 		console.log("useEffect");
 		const setter = async () => {
 			setAllCards(await generateData(search));
+
 			setLoading(false);
 		};
 		setter();
-	}, []);
+	}, [allCards]);
 
 	console.log("ALL CARDS: ", allCards);
 
@@ -49,7 +50,7 @@ function App() {
 		<>
 			<Header />
 			<Explanation />
-			<MainContainer>
+			<MainContainer loading={loading}>
 				{!loading &&
 					allCards[shownArray].map((element, index) => (
 						<InfoCard
