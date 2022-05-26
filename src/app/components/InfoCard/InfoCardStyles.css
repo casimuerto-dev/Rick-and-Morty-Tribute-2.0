@@ -1,7 +1,7 @@
 @import "/src/globalVars.css";
 
 .InfoCard{
-  background-color: var(--main-color);
+    background-color: var(--main-color);
   border-radius: 0.5em;
   box-shadow: -5px 5px 5px 0px rgb(80, 79, 79);
   transition: ease-in;
@@ -10,17 +10,24 @@
   overflow: hidden;
   }
 
+  .InfoCard img{
+    width: 90%;
+    display: block;
+    margin: 0.5em auto;
+    border-radius: 0.5em;
+  }
 
 .appear{animation: 1s ease-in 0s 1 appear;}
 
-.unmount{background-color: red;
-}
 
 .InfoCard:hover{
 transform: translate(5px,-5px);
 box-shadow: -10px 10px 5px 0px rgb(80, 79, 79);
-cursor: pointer;
+cursor: grab;
+}
 
+.InfoCard:active{
+  cursor: grabbing;
 }
 
 @keyframes appear {
@@ -33,25 +40,98 @@ cursor: pointer;
   }
 }
 
-.cardHeader{display: flex;}
 
-.cardHeader img{
-  max-width: 70%;
-  margin-left: 0.5em ;
-  margin-top: 10px;
-  border: 1px solid white;
-  
+/* revisar funcionalidad */
+.cardHeader{display: flex; 
+  justify-content: flex-start;
 }
 
-.cardNumber{
-margin: 0;
+
+.InfoCard .cardHeader .cardNumber{
+
+  margin: 0;
 background-color: white;
 width: 1.5em;
 height: 1.5em;
 border-radius: 2px;
 text-align: center;
 font-size: 12px;
-text-align: center;
+
 }
 
-.writtenInfo > p {margin: 0;}
+
+.InfoCard .cardHeader p:nth-child(2) {
+  margin: 0 auto;
+  font-size:100%;
+  width: 100%;
+text-align: center;
+background-color: var(--main-color);
+color: white;
+}
+
+/* when clicked  //////////////////////////////////////////////// */
+
+
+.clicked{
+  background-image: url(https://wallpapercave.com/wp/wp6737133.png); 
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center; 
+  border-radius: 0.5em;
+  box-shadow: -5px 5px 5px 0px rgb(80, 79, 79);
+  transition: ease-in;
+  transition-duration: 0.2s;
+  max-height: 100%;
+  grid-column: 2/5;
+  grid-row: 1/4;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.clicked:hover{
+  cursor: pointer;
+}
+
+.clicked .cardHeader p:nth-child(2) {
+  margin: 0 auto;
+  font-size: 3em;
+  width: 100%;
+text-align: center;
+background-color: var(--main-color);
+color: white;
+}
+
+.clicked .cardNumber{display: none;}
+
+.clicked img{border-radius: 15px;
+  border: 1px solid black;
+  display: block;
+  margin: 3em auto 0;
+  max-width: 60%;
+}
+  
+  .writtenInfo{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 1em auto;
+    width: 60%;
+    border-radius: 0.5em;
+  border: 1px solid black;
+  }
+
+  .writtenInfo > p{
+    display: block;
+    font-size: 1.5em;
+    justify-self: center;
+    width:min-content;
+  }
+
+  .writtenInfo > p ::last-word{
+    color: red;
+  }
+
+  .propertyName{
+    color: var(--main-color);
+  }

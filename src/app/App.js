@@ -12,6 +12,7 @@ function App() {
 	const [shownArray, setShownArray] = React.useState(0);
 	const [loading, setLoading] = React.useState(true);
 	const [empty, setEmpty] = React.useState(true);
+	const [clicked, setClicked] = React.useState({ status: false });
 	const [search, setSearch] = React.useState({
 		name: "rick",
 		status: "alive",
@@ -33,6 +34,12 @@ function App() {
 			shownArray > 0 ? setShownArray((pag) => pag - 1) : "";
 		}
 		setLoading(false);
+	};
+
+	const handleSelection = (id) => {
+		const info = allCards[shownArray][id - 1 - shownArray * 15];
+
+		setClicked({ status: !clicked.status, info, key: id });
 	};
 
 	React.useEffect(() => {
@@ -64,29 +71,41 @@ function App() {
 			<MainContainer loading={loading}>
 				{!loading &&
 					!empty &&
+					!clicked.status &&
 					allCards[shownArray].map((element, index) => (
 						<InfoCard
 							key={shownArray * 15 + (index + 1)}
 							number={shownArray * 15 + (index + 1)}
+							handleSelection={handleSelection}
 							info={element}
 						/>
 					))}
-				{!loading && empty && <p>No matching results.</p>}
+				{!loading && empty && !clicked.status && <p>No matching results.</p>}
+				{clicked.status && (
+					<InfoCard
+						key={clicked.key}
+						number={clicked.key}
+						info={clicked.info}
+						clicked={clicked.status}
+						handleSelection={handleSelection}
+					/>
+				)}
 			</MainContainer>
-
-			<MainButtons
-				loading={loading}
-				back={() => {
-					setLoading(true);
-					changePage("back");
-				}}
-				next={() => {
-					setLoading(true);
-					changePage("next");
-				}}
-				page={shownArray + 1}
-				pages={allCards.length}
-			/>
+			{!clicked.status && (
+				<MainButtons
+					loading={loading}
+					back={() => {
+						setLoading(true);
+						changePage("back");
+					}}
+					next={() => {
+						setLoading(true);
+						changePage("next");
+					}}
+					page={shownArray + 1}
+					pages={allCards.length}
+				/>
+			)}
 		</>
 	);
 }
