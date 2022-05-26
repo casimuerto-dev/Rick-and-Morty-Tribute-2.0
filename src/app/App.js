@@ -67,7 +67,12 @@ function App() {
 		<>
 			<Header />
 			<Explanation />
-			<SearchBar search={search} setSearch={setSearch} setLoading={setLoading} />
+			<SearchBar
+				search={search}
+				setSearch={setSearch}
+				setLoading={setLoading}
+				setShownArray={setShownArray}
+			/>
 			<MainContainer loading={loading}>
 				{!loading &&
 					!empty &&

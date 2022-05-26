@@ -38,6 +38,10 @@ text-align: center;
   outline-color: var(--main-color);
 }
 
+.searchInput:focus::placeholder{
+  color: transparent;
+}
+
 .searchButton{
   margin:2px;
   border-radius: 0.5em;

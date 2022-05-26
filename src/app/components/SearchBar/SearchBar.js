@@ -39,7 +39,12 @@ function SearchBar(props) {
 		<div id="SearchBar">
 			<label>
 				<p>Name: </p>
-				<input className="searchInput" onChange={nameChange} value={name}></input>
+				<input
+					className="searchInput"
+					onChange={nameChange}
+					value={name}
+					placeholder="-"
+				></input>
 			</label>
 			<label>
 				<p>Status: </p>
@@ -47,6 +52,7 @@ function SearchBar(props) {
 					className="searchInput"
 					onChange={statusChange}
 					value={status}
+					placeholder="-"
 				></input>
 			</label>
 			<label>
@@ -55,11 +61,17 @@ function SearchBar(props) {
 					className="searchInput"
 					onChange={speciesChange}
 					value={species}
+					placeholder="-"
 				></input>
 			</label>
 			<label>
 				<p>Type: </p>
-				<input className="searchInput" onChange={typeChange} value={type}></input>
+				<input
+					className="searchInput"
+					onChange={typeChange}
+					value={type}
+					placeholder="-"
+				></input>
 			</label>
 			<label>
 				<p>Gender: </p>
@@ -67,6 +79,7 @@ function SearchBar(props) {
 					className="searchInput"
 					onChange={genderChange}
 					value={gender}
+					placeholder="-"
 				></input>
 			</label>
 			<button className="searchButton" onClick={() => handleClear()}>
@@ -76,6 +89,7 @@ function SearchBar(props) {
 				className="searchButton"
 				onClick={() => {
 					props.setSearch({ name, status, species, type, gender });
+					props.setShownArray(0);
 					props.setLoading(true);
 				}}
 			>
