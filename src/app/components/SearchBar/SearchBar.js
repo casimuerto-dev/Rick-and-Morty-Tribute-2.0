@@ -2,11 +2,19 @@ import React from "react";
 import "./SearchBarStyles.css";
 
 function SearchBar(props) {
-	const [name, setName] = React.useState("");
-	const [status, setStatus] = React.useState("");
-	const [species, setSpecies] = React.useState("");
+	const [name, setName] = React.useState("rick");
+	const [status, setStatus] = React.useState("alive");
+	const [species, setSpecies] = React.useState("human");
 	const [type, setType] = React.useState("");
-	const [gender, setGender] = React.useState("");
+	const [gender, setGender] = React.useState("male");
+
+	function handleClear() {
+		setName("");
+		setStatus("");
+		setSpecies("");
+		setType("");
+		setGender("");
+	}
 
 	function nameChange(e) {
 		setName(() => e.target.value);
@@ -31,18 +39,12 @@ function SearchBar(props) {
 		<div id="SearchBar">
 			<label>
 				<p>Name: </p>
-				<input
-					className="searchInput"
-					placeholder="Rick"
-					onChange={nameChange}
-					value={name}
-				></input>
+				<input className="searchInput" onChange={nameChange} value={name}></input>
 			</label>
 			<label>
 				<p>Status: </p>
 				<input
 					className="searchInput"
-					placeholder="Dead"
 					onChange={statusChange}
 					value={status}
 				></input>
@@ -51,30 +53,27 @@ function SearchBar(props) {
 				<p>Species: </p>
 				<input
 					className="searchInput"
-					placeholder="Robot"
 					onChange={speciesChange}
 					value={species}
 				></input>
 			</label>
 			<label>
 				<p>Type: </p>
-				<input
-					className="searchInput"
-					placeholder="Decoy"
-					onChange={typeChange}
-					value={type}
-				></input>
+				<input className="searchInput" onChange={typeChange} value={type}></input>
 			</label>
 			<label>
 				<p>Gender: </p>
 				<input
 					className="searchInput"
-					placeholder="Male"
 					onChange={genderChange}
 					value={gender}
 				></input>
 			</label>
+			<button className="searchButton" onClick={() => handleClear()}>
+				Clear
+			</button>
 			<button
+				className="searchButton"
 				onClick={() => {
 					props.setSearch({ name, status, species, type, gender });
 					props.setLoading(true);

@@ -26,14 +26,35 @@ align-items: center;}
 .searchInput{
   border-radius: 0.5em;
   border: 1px solid black;
-  width: 5rem;
+  width: 4rem;
   font-family: var(--cursive-font);
 font-size: 17px;
   margin-top: 4px;
-margin-right: 10px;
+margin-right: 5px;
 text-align: center;
 }
 
 .searchInput:focus{
   outline-color: var(--main-color);
+}
+
+.searchButton{
+  margin:2px;
+  border-radius: 0.5em;
+  background-color: var(--main-color);
+  color: white;
+  font-family: var(--interesting-font);
+  font-size: 18px;
+  transition: ease-in;
+transition-duration: 0.2s;
+}
+
+.searchButton:hover{
+  cursor: pointer;
+  transform: translate(1px,-1px);
+  box-shadow: -5px 5px 5px 0px rgb(0, 0, 0);
+}
+
+.searchButton:active{
+  background-color: white;
 }

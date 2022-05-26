@@ -14,9 +14,9 @@ function App() {
 	const [empty, setEmpty] = React.useState(true);
 	const [search, setSearch] = React.useState({
 		name: "rick",
-		status: "dead",
-		species: "robot",
-		type: "decoy",
+		status: "alive",
+		species: "human",
+		type: "",
 		gender: "male",
 	});
 
