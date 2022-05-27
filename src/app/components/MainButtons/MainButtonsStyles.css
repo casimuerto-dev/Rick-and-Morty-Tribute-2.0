@@ -13,6 +13,13 @@ text-align: center;
 cursor:default;
 }
 
+@media(max-width:950px){
+  #MainButtons{
+    width: 70vw;
+  }
+  
+}
+
 
 
 .mainButton{font-family: var(--main-font);

@@ -82,20 +82,22 @@ function SearchBar(props) {
 					placeholder="-"
 				></input>
 			</label>
-			<button className="searchButton" onClick={() => handleClear()}>
-				Clear
-			</button>
-			<button
-				className="searchButton"
-				onClick={() => {
-					props.setSearch({ name, status, species, type, gender });
-					props.setShownArray(0);
-					props.setClicked({ status: false });
-					props.setLoading(true);
-				}}
-			>
-				Go
-			</button>
+			<div className="searchButtonDiv">
+				<button className="searchButton" onClick={() => handleClear()}>
+					Clear
+				</button>
+				<button
+					className="searchButton"
+					onClick={() => {
+						props.setSearch({ name, status, species, type, gender });
+						props.setShownArray(0);
+						props.setClicked({ status: false });
+						props.setLoading(true);
+					}}
+				>
+					Go
+				</button>
+			</div>
 		</div>
 	);
 }

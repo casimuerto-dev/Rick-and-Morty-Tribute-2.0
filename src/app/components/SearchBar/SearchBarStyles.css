@@ -11,6 +11,17 @@
   font-size: 1.3rem;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+@media(max-width:1025px){
+
+#SearchBar{padding-right: 5px;
+  font-size: 15px;
+}
+#SearchBar > button{
+  font-size: 0.8em;
+}
 }
 
 #SearchBar > label{display: flex;
@@ -44,6 +55,7 @@ text-align: center;
 
 .searchButton{
   margin:2px;
+  
   border-radius: 0.5em;
   background-color: var(--main-color);
   color: white;

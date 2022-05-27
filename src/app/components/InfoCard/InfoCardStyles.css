@@ -6,7 +6,8 @@
   box-shadow: -5px 5px 5px 0px rgb(80, 79, 79);
   transition: ease-in;
   transition-duration: 0.2s;
-  max-height: 100%;
+  height: 210px;
+  width: 167px;
   overflow: hidden;
   }
 
@@ -41,15 +42,17 @@ cursor: grab;
 }
 
 
-/* revisar funcionalidad */
+
 .cardHeader{display: flex; 
   justify-content: flex-start;
 }
 
 
 .InfoCard .cardHeader .cardNumber{
-
-  margin: 0;
+  margin:0;
+  padding-left: 1px;
+  padding-right: 2px;
+  padding-top: 2px;
 background-color: white;
 width: 1.5em;
 height: 1.5em;
@@ -85,7 +88,19 @@ color: white;
   grid-column: 2/5;
   grid-row: 1/4;
   border: 1px solid black;
-  overflow: hidden;
+  overflow: auto;
+}
+
+.clicked::-webkit-scrollbar {
+  width: 5px;
+    }
+
+ 
+.clicked::-webkit-scrollbar-thumb {
+  
+  background-color: rgb(172, 109, 80);
+  border-radius: 2px;
+  
 }
 
 .clicked:hover{
@@ -93,6 +108,7 @@ color: white;
 }
 
 .clicked .cardHeader p:nth-child(2) {
+  z-index: 0;
   margin: 0 auto;
   font-size: 3em;
   width: 100%;
