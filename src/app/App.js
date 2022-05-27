@@ -72,6 +72,7 @@ function App() {
 				setSearch={setSearch}
 				setLoading={setLoading}
 				setShownArray={setShownArray}
+				setClicked={setClicked}
 			/>
 			<MainContainer loading={loading}>
 				{!loading &&

@@ -112,25 +112,34 @@ color: white;
   
   .writtenInfo{
     background-color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content:flex-start;
+    flex-wrap: wrap;
+    flex-grow: 1;
     margin: 1em auto;
     width: 60%;
+    height: 30%;
     border-radius: 0.5em;
-  border: 1px solid black;
+    border: 1px solid black;
+    box-sizing: border-box;
+  
   }
 
-  .writtenInfo > p{
-    display: block;
-    font-size: 1.5em;
+  .writtenInfo > div{
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    font-size: 1em;
     justify-self: center;
-    width:min-content;
+    font-size: 1.2em;
+    
   }
 
-  .writtenInfo > p ::last-word{
-    color: red;
-  }
+  .writtenInfo > div > p{display: inline-block;
+  margin: 0;
+}
+
 
   .propertyName{
     color: var(--main-color);

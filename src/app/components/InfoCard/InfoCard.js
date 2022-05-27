@@ -18,22 +18,22 @@ const InfoCard = (props) => {
 			<img src={props.info.image} />
 			{props.clicked && (
 				<div className="writtenInfo">
-					<p>
-						<span className="propertyName">Status:</span>{" "}
+					<div>
+						<p className="propertyName">Status:</p>{" "}
 						{props.info.status ? props.info.status : "-"}
-					</p>
-					<p>
-						<span className="propertyName">Species:</span>{" "}
+					</div>
+					<div>
+						<p className="propertyName">Species:</p>{" "}
 						{props.info.species ? props.info.species : "-"}
-					</p>
-					<p>
-						<span className="propertyName">Type:</span>{" "}
+					</div>
+					<div>
+						<p className="propertyName">Type:</p>{" "}
 						{props.info.type ? props.info.type : "-"}
-					</p>
-					<p>
-						<span className="propertyName">Gender:</span>{" "}
+					</div>
+					<div>
+						<p className="propertyName">Gender:</p>{" "}
 						{props.info.gender ? props.info.gender : "-"}
-					</p>
+					</div>
 				</div>
 			)}
 		</div>

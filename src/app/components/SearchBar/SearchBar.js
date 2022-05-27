@@ -90,6 +90,7 @@ function SearchBar(props) {
 				onClick={() => {
 					props.setSearch({ name, status, species, type, gender });
 					props.setShownArray(0);
+					props.setClicked({ status: false });
 					props.setLoading(true);
 				}}
 			>
