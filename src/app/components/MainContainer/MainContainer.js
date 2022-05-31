@@ -1,6 +1,6 @@
 import React from "react";
 import "./MainContainerStyles.css";
-function MainContainer({ children, loading }) {
+function MainContainer({ children, loading, clicked }) {
 	if (loading) {
 		return (
 			<div className="loadingContainer">
@@ -8,7 +8,11 @@ function MainContainer({ children, loading }) {
 			</div>
 		);
 	} else {
-		return <div id="MainContainer">{children}</div>;
+		return (
+			<div className={!clicked && "unZoomed"} id="MainContainer">
+				{children}
+			</div>
+		);
 	}
 }
 

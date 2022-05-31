@@ -74,7 +74,7 @@ function App() {
 				setShownArray={setShownArray}
 				setClicked={setClicked}
 			/>
-			<MainContainer loading={loading}>
+			<MainContainer loading={loading} clicked={clicked.status}>
 				{!loading &&
 					!empty &&
 					!clicked.status &&
